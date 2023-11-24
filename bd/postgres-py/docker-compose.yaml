@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    db:
+        image: postgres:14.3
+        restart: always
+        ports:
+            - "10000:5432"
+        environment:
+            POSTGRES_DB: compraspy
+            POSTGRES_USER: comprauser
+            POSTGRES_PASSWORD: 12345
+        container_name: bd-compraspy
+        volumes:
+            - ./docker-db/postgres:/var/lib/postgresql/data 
+
+          
