@@ -1,3 +1,4 @@
+.vscode
 bd/postgres-py/docker-db
 bd/postgres-resto/docker-db
 node_modules
