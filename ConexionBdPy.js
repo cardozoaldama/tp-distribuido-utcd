@@ -21,6 +21,21 @@ const poolCompraPy = new Pool({
     database connections in Node.js applications. */
 });
 
+// HOMEWORK!
+// Create a new PoolCompraResto, just like poolCompraPy.
+const poolCompraResto = new Pool({
+    // User:
+    user: 'comprauser',
+    // Host:
+    host: 'localhost',
+    // The PostgreSQL database:
+    database: 'comprasresto',
+    // Our password:
+    password: '12345',
+    // And, finally, our port:
+    port: 10001,
+});
+
 // Export the Pool instance so it can be used in other files!
 module.exports = poolCompraPy;
 /* You can use the exported file in other files of your Node.js project 
