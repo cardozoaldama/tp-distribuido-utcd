@@ -48,6 +48,21 @@ app.get('/compras/py', async (req, res) => {
     }
 });
 
+// Route for all "compras" or purchases from the PostgreSQL database:
+// However, this code is for "ComprasResto" for homework.
+app.get('/compras/resto', async (req, res) => {
+    // Using a try, catch here.
+    try {
+        // Execute the SQL query in the database and return those results in JSON format!
+        const result = await poolCompraResto.query("SELECT * FROM compras");
+        res.json(result.rows);
+    } catch (error) {
+        // It's the same code as the first, up there.
+        console.error("Error grave en el servidor", error);
+        res.status(500).send("Error grave en el servidor");
+    }
+});
+
 // Route to add a new purchase (compra) to the PostgreSQL database.
 app.get('/compras/py/agregar', async (req, res) => {
     // Using try, catch, statement. 
