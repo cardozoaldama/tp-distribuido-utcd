@@ -112,6 +112,56 @@ app.get('/compras/py/agregar', async (req, res) => {
         res.status(500).send("Error grave en el servidor al insertar");
     }
 });
+
+// Route to add new purchases, but with "resto" pool connection.
+app.get('/compras/resto/agregar', async (req, res) => {
+    // Using try, catch, statement. 
+    try {
+        // Data of the purchase (compra) to be inserted!
+        const compra = {
+            // The name of the product:
+            producto: "Cargador de Notebook",
+            // Quantity of the product:
+            cantidad: 4,
+            // The unit price:
+            precio_unitario: 500000,
+            // The total one (a little math here):
+            total: 2000000,
+            // And date of the purchase.
+            fecha_compra: '2023-11-29'
+        };
+        // SQL query to insert a new purchase (compra) into the database.
+        // Please, insert into the "compras" these elements with its values, respectively:
+        const query = `
+                INSERT INTO compras (producto, cantidad, precio_unitario, total, fecha_compra)
+                VALUES ($1, $2, $3, $4, $5)
+                `;
+        // Execute the SQL query with the provided parameters:
+        await poolCompraResto.query(query,
+            [compra.producto, compra.cantidad, compra.precio_unitario, compra.total, compra.fecha_compra],
+            (error, resultado) => {
+                if (error) {
+                    console.error("Error al insertar: ", error);
+                } else {
+                    console.log("Insercion correcta: ");
+                }
+                // Connection is not closed here to allow pool reuse
+                //poolCompraResto.end();
+            }
+        );
+        // The good message we want to hear!
+        const result = {
+            mensaje: "¡Registro insertado correctamente!"
+        }
+        // This is the result as the up here.
+        res.json(result);
+    // In case there is an error:
+    } catch (error) {
+        console.error("Error grave en el servidor al insertar", error);
+        res.status(500).send("Error grave en el servidor al insertar");
+    }
+});
+
 // Port on which the Express application listens for requests:
 const puerto = 3000;
 app.listen(puerto, () => {
