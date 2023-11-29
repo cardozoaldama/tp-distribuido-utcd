@@ -38,5 +38,7 @@ const poolCompraResto = new Pool({
 
 // Export the Pool instance so it can be used in other files!
 module.exports = poolCompraPy;
+// This is the new kid in town!
+module.exports = poolCompraResto;
 /* You can use the exported file in other files of your Node.js project 
 to perform queries on the PostgreSQL database. */
