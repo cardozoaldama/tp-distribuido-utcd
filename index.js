@@ -7,6 +7,9 @@ const express = require("express");
 const poolCompraPy = require("./ConexionBdPy");
 // The new dependency, poolCompraResto:
 const poolCompraResto = require("./ConexionBdPy");
+// Let's try to use Faker.js:
+// Generating random data.
+const faker = require('faker');
 
 // Kinda a debug:
 console.log("Hola, estoy iniciando");
@@ -113,6 +116,8 @@ app.get('/compras/py/agregar', async (req, res) => {
     }
 });
 
+/* ¡COMPRAS RESTO! */
+
 // Route to add new purchases, but with "resto" pool connection.
 app.get('/compras/resto/agregar', async (req, res) => {
     // Using try, catch, statement. 
@@ -120,15 +125,15 @@ app.get('/compras/resto/agregar', async (req, res) => {
         // Data of the purchase (compra) to be inserted!
         const compra = {
             // The name of the product:
-            producto: "Cargador de Notebook",
+            producto: faker.commerce.productName(),
             // Quantity of the product:
-            cantidad: 4,
+            cantidad: faker.random.number(),
             // The unit price:
-            precio_unitario: 500000,
+            precio_unitario: faker.random.number(),
             // The total one (a little math here):
-            total: 2000000,
+            total: faker.random.number(),
             // And date of the purchase.
-            fecha_compra: '2023-11-29'
+            fecha_compra: faker.date.past().toISOString().split('T')[0]
         };
         // SQL query to insert a new purchase (compra) into the database.
         // Please, insert into the "compras" these elements with its values, respectively:
@@ -151,7 +156,7 @@ app.get('/compras/resto/agregar', async (req, res) => {
         );
         // The good message we want to hear!
         const result = {
-            mensaje: "¡Registro insertado correctamente!"
+            mensaje: "¡Registro insertado (aleatoriamente) correctamente!"
         }
         // This is the result as the up here.
         res.json(result);
