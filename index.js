@@ -53,15 +53,15 @@ app.get('/compras/py/agregar', async (req, res) => {
         // Data of the purchase (compra) to be inserted!
         const compra = {
             // The name of the product:
-            producto: "mouse",
+            producto: "Cargador de Notebook",
             // Quantity of the product:
-            cantidad: 5,
+            cantidad: 4,
             // The unit price:
-            precio_unitario: 10000,
+            precio_unitario: 500000,
             // The total one (a little math here):
-            total: 50000,
+            total: 2000000,
             // And date of the purchase.
-            fecha_compra: '2023-11-21'
+            fecha_compra: '2023-11-29'
         };
         // SQL query to insert a new purchase (compra) into the database.
         // Please, insert into the "compras" these elements with its values, respectively:
