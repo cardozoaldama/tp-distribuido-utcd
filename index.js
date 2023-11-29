@@ -5,6 +5,8 @@
 const express = require("express");
 // Express is a popular web framework for Node.js...
 const poolCompraPy = require("./ConexionBdPy");
+// The new dependency, poolCompraResto:
+const poolCompraResto = require("./ConexionBdPy");
 
 // Kinda a debug:
 console.log("Hola, estoy iniciando");
