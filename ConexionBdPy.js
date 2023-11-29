@@ -1,13 +1,27 @@
+// This file configures a connection to a PostgreSQL database.
+
+// Using the "pg" module:
+// This module is used to interact with PostgreSQL databases in Node.js environments.
+// Import the "Pool" module from the "pg" package.
 const { Pool } = require("pg");
 
-
+// Create a new instance of Pool with the database configuration.
 const poolCompraPy = new Pool({
+    // The user...
     user: 'comprauser',
+    // The host.
     host: 'localhost',
+    // The database.
     database: 'compraspy',
+    // The password.
     password: '12345',
+    // And, finally, the port.
     port: 10000,
+    /* This is an efficient technique for handling 
+    database connections in Node.js applications. */
 });
 
+// Export the Pool instance so it can be used in other files!
 module.exports = poolCompraPy;
-
+/* You can use the exported file in other files of your Node.js project 
+to perform queries on the PostgreSQL database. */
