@@ -31,6 +31,7 @@ app.get('/', async (req, res) => {
     // If there is an error:
     } catch (error) {
         // Shows us the error!
+        // Hola.
         console.error("Error grave en el servidor", error);
         res.status(500).send("Error grave en el servidor");
     }
