@@ -12,7 +12,6 @@ const poolCompraPy = new Pool({
     // The host.
     host: 'localhost',
     // The database.
-    // Hola.
     database: 'compraspy',
     // The password.
     password: '12345',

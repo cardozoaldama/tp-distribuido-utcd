@@ -44,7 +44,6 @@ app.get('/compras/py', async (req, res) => {
         // Execute the SQL query in the database and return those results in JSON format!
         const result = await poolCompraPy.query("SELECT * FROM compras");
         res.json(result.rows);
-        // HOLA MUNDO.
     } catch (error) {
         // We could use a function here without repeating the code.
         // It's the same code as the first, up there.
