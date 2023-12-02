@@ -36,14 +36,14 @@ docker pull postgres:14.3
 
 
 ### Iniciar BD postgres-py con docker 
-- Por línea de comandos ir al directorio `$ cd /bd/postgres-py/`-
-- Levantar con: `docker-compose up -d`.
-- Cuando ya no se use, parar con: ` docker-compose down`.
+- Por línea de comandos ir al directorio `$ cd /bd/postgres-py/`
+- Levantar con: `docker-compose up -d`
+- Cuando ya no se use, parar con: ` docker-compose down`
 
 ### Iniciar BD postgres-resto con docker
-- Por linea de comandos ir al directorio /bd/postgres-resto/
-- Levantar con: `docker-compose up -d`.
-- Cuando ya no se use, parar con: ` docker-compose down`.
+- Por linea de comandos ir al directorio `$ cd /bd/postgres-resto/`
+- Levantar con: `docker-compose up -d`
+- Cuando ya no se use, parar con: ` docker-compose down`
 
 
 ## Base de datos
