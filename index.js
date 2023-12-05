@@ -125,15 +125,17 @@ app.get('/compras/resto/agregar', async (req, res) => {
     try {
         // Data of the purchase (compra) to be inserted!
         const compra = {
+	    // Using faker library.
             // The name of the product:
             producto: faker.commerce.productName(),
             // Quantity of the product:
             cantidad: faker.random.number(),
             // The unit price:
             precio_unitario: faker.random.number(),
-            // The total one (a little math here):
+            // The total one:
             total: faker.random.number(),
             // And date of the purchase.
+            // Something complex with objects and methods for date of purchases.
             fecha_compra: faker.date.past().toISOString().split('T')[0]
         };
         // SQL query to insert a new purchase (compra) into the database.
