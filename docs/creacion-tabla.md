@@ -1,5 +1,6 @@
-## Tabla compras
-- Tabla que contiene los productos comprados
+## Tabla "compras"
+
+- Tabla que contiene los productos comprados:
 ```sql
 CREATE TABLE compras (
     id SERIAL PRIMARY KEY,
@@ -10,7 +11,7 @@ CREATE TABLE compras (
     fecha_compra DATE NOT NULL
 );
 ```
-- insertar dato de prueba
+- Insertar dato de prueba:
 ```sql
 INSERT INTO compras (producto, cantidad, precio_unitario, total, fecha_compra)
 VALUES ('computadora', 1, 860, 860, '2023-11-21');
